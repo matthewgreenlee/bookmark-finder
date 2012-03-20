@@ -1,0 +1,12 @@
+{
+  "name": "Bookmark Finder",
+  "version": "1.0",
+  "description": "The app is created for my soon-to-be-born child.",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup": "bookmark.html"
+  },
+  "permissions": [
+    "bookmarks", "tabs"
+  ]
+}
