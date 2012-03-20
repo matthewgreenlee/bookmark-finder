@@ -1,14 +1,46 @@
-<html>
-<head>
-</head>
-<body>
 <script type="text/javascript">
 function showBookmarkManager()
 {
 	chrome.tabs.create({url:"chrome://bookmarks/"});
 }
 
-showBookmarkManager();
+//showBookmarkManager();
+chrome.omnibox.onInputChanged.addListener(
+  function(text, suggest) {
+    console.log("you typed in: " + text);
+	// search against bookmarks
+	searchBookmark(text, suggest);
+//	suggest([
+//	  {content: "suggest1", description: "desc suggest1"},
+//	  {content: "suggest2", description: "desc suggest2"}
+//	]);
+    
+  });
+
+chrome.omnibox.onInputEntered.addListener(
+  function(text){
+	  chrome.tabs.create({url: text});
+  });
+
+function searchBookmark(text, suggest)
+{
+  chrome.bookmarks.search(text, 
+    function(results){
+      var suggestions = [];
+      for (var i = 0; i < results.length; i++ ) {
+//        console.log(results[i].url);
+// how to init an object in json format
+//        var suggestion = new Object(content: results[i].url, description: result[i].title);
+		var suggestion = convertToSuggest(results[i]);
+        suggestions.push(suggestion);
+      }
+      function convertToSuggest(result) {
+    	  return {
+    		  'content': result.url,
+    		  'description': result.title
+    	  }
+      }
+      suggest(suggestions);
+  });
+}
 </script>
-</body>
-</html>
