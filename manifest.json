@@ -2,6 +2,11 @@
   "name": "Bookmark Finder",
   "version": "1.1",
   "description": "The app is created for my soon-to-be-born child.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "omnibox": {"keyword": "bf"},
   "background_page": "bookmark.html",
   "permissions": [
