@@ -3,10 +3,7 @@
   "version": "1.1",
   "description": "The app is created for my soon-to-be-born child.",
   "omnibox": {"keyword": "bf"},
-  "browser_action": {
-    "default_icon": "icon.png",
-    "popup": "bookmark.html"
-  },
+  "background_page": "bookmark.html",
   "permissions": [
     "bookmarks", "tabs"
   ]
