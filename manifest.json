@@ -8,7 +8,7 @@
     "128": "icon128.png"
   },
   "omnibox": {"keyword": "bf"},
-  "background_page": "bookmark.html",
+  "background_page": "background.html",
   "permissions": [
     "bookmarks", "tabs"
   ]
